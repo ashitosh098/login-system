@@ -1,0 +1,7 @@
+#nameNullError ,#emailNullError,#pswdNullError,#cnfPswdNullError,#checkBoxError,#loginEmailError,#loginPswdError,#invalidCredentials,#emailError{
+  color: red;
+}
+#tempPasswordDisplay
+{
+    color :green;
+}
