@@ -13,11 +13,11 @@ $('#register').on('click', function(event) {
 	var checkBox = agree.checked;
 	var re = /\S+@\S+\.\S+/;
 	var validate = re.test(email);
-	
-
 
 	
 		if(fullname!="" && email!="" && pswd!="" &&   confirmPswd!="" && checkBox == true && pswd == confirmPswd && validate == true && nameLength==2){
+
+ 
 			$.ajax({
 				url: "../php/save.php",
 				type: "POST",

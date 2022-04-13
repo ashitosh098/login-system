@@ -27,6 +27,7 @@
 
       <form  method="post">
           <p id="invalidCredentials"></p>
+          <p id="userDontExsist"></p>
         <div class="input-group mb-3">
           <input type="email" class="form-control" placeholder="Email" id="loginEmail">
           <div class="input-group-append">
@@ -81,6 +82,8 @@
 <script src="../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
 <!-- AdminLTE App -->
 <script src="../js/login.js"></script>
 </body>

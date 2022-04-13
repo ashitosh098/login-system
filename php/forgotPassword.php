@@ -21,8 +21,9 @@
                 $pass[] = $comb[$n];
             }
             $tempPswd=implode($pass);
+            $encdPassword= password_hash($tempPswd, PASSWORD_DEFAULT);
            
-            $sql1 =mysqli_query( $conn,"UPDATE userdetails SET password='$tempPswd'  WHERE email='$email'");
+            $sql1 =mysqli_query( $conn,"UPDATE userdetails SET password='$encdPassword'  WHERE email='$email'");
             
             echo $tempPswd;
 

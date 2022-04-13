@@ -1,7 +1,11 @@
-#nameNullError ,#emailNullError,#pswdNullError,#cnfPswdNullError,#checkBoxError,#loginEmailError,#loginPswdError,#invalidCredentials,#emailError{
+#nameNullError ,#emailNullError,#pswdNullError,#cnfPswdNullError,#checkBoxError,#loginEmailError,#loginPswdError,#invalidCredentials,#emailError,#userDontExsist{
   color: red;
 }
-#tempPasswordDisplay
+#tempPasswordDisplay,#addSuccess
 {
     color :green;
+}
+.error
+{
+  color: red;
 }

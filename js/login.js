@@ -7,8 +7,11 @@ $('#login').on('click', function(event) {
     var pswd = $('#loginPswd').val();
     var re = /\S+@\S+\.\S+/;
 	 var validate =re.test(email);
+     
 
     if(email!="" && pswd!="" && validate==true){
+
+
         $.ajax({
             url: "../php/login.php",
             type: "POST",
@@ -24,14 +27,28 @@ $('#login').on('click', function(event) {
                 if(status.statusCode==200)
                 {
                     document.getElementById("invalidCredentials").innerHTML = "";
+                    document.getElementById("userDontExsist").innerHTML = "";
+                    document.getElementById("loginEmailError").innerHTML = "";
+			document.getElementById("loginPswdError").innerHTML = "";
                     alert("login successfull!")
                     window.location = "../html/dashboard.php";
-                    console.log(status)
+                    
 
                 }
-                else
+                else if(status.statusCode==201)
                 {
                     document.getElementById("invalidCredentials").innerHTML = "Invalid  Credentials ";
+                    document.getElementById("userDontExsist").innerHTML = "";
+                    document.getElementById("loginEmailError").innerHTML = "";
+                    document.getElementById("loginPswdError").innerHTML = "";
+                    
+                    
+                }
+                else if(status.statusCode==202){
+                    document.getElementById("invalidCredentials").innerHTML = "";
+                    document.getElementById("userDontExsist").innerHTML = "User Dosent Exsist";
+                    document.getElementById("loginEmailError").innerHTML = "";
+                    document.getElementById("loginPswdError").innerHTML = "";
                 }
                 
 
@@ -49,6 +66,7 @@ $('#login').on('click', function(event) {
 			document.getElementById("loginEmailError").innerHTML = "please enter email*";
 			document.getElementById("loginPswdError").innerHTML = "";
             document.getElementById("invalidCredentials").innerHTML = "";
+            document.getElementById("userDontExsist").innerHTML = "";
 			
 		}
         else if(validate ==false)
@@ -56,6 +74,7 @@ $('#login').on('click', function(event) {
             document.getElementById("loginEmailError").innerHTML = "please enter valid  email*";
 			document.getElementById("loginPswdError").innerHTML = "";
             document.getElementById("invalidCredentials").innerHTML = "";
+            document.getElementById("userDontExsist").innerHTML = "";
         }
         else if(pswd=="")
 		{
@@ -63,6 +82,7 @@ $('#login').on('click', function(event) {
 			document.getElementById("loginEmailError").innerHTML = "";
 			document.getElementById("loginPswdError").innerHTML = "please enter valid password*";	
             document.getElementById("invalidCredentials").innerHTML = "";
+            document.getElementById("userDontExsist").innerHTML = "";
 		}
         
     
